@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshaly1School библиотека</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Evolventa', sans-serif;
+        }
+
+        header {
+            position: relative;
+            background-color: #4E69F6;
+            color: #fff;
+            padding: 10px;
+            font-family: 'Evolventa', sans-serif;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            float: left;
+            margin-right: 5px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Evolventa', sans-serif;
+            line-height: 50px;
+            
+        }
+
+        .glav {
+            position: relative;
+            float: right;
+            top: 1%;
+            background-color: #4E69F6;
+            border: none;
+            color: white;
+            padding: 0px 7px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 30px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Evolventa', sans-serif;
+        }
+
+        .container {
+    display: flex;
+    flex-direction: column; /* Устанавливаем направление flex-контейнера на столбец */
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+        .big-div {
+            width: 1000px;
+            height: 200px;
+            background-color: #fff065;
+            margin: 20px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 50px; /* Adjust to center text vertically */
+        }
+
+        .big-div img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: auto;
+            position: absolute;
+
+        }
+
+        .big-div h1 {
+            position: absolute;
+            padding: 5px;
+            color: black;
+        }
+
+        @media screen and (max-width: 600px) {
+            .big-div {
+                width: 90%; /* Adjust as needed */
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            header h1 {
+                display: none;
+            }
+        }
+
+        .search-bar input[type="text"] {
+            width: 90%;
+            max-width: 500px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #d3bc34;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="111.png" class="logo">
+        <a href="School.html" class="glav">О школе</a>
+        <a href="index.html" class="glav">Главная</a>
+        <h1>Arshaly school 1</h1>
+    </header>
+
+    
+
+    <div class="container">
+        <a href="komedia.html" class="big-div">
+            <img src="5.png" alt="img"><br><br>
+            <h1>Комедия(тест)</h1>
+        </a>
+
+        <a href="prik.html" class="big-div">
+            <img src="6.png" alt="img"><br><br>
+            <h1>Приключения(тест)</h1>
+        </a>
+
+        <a href="fan.html" class="big-div">
+            <img src="7.png" alt="img"><br><br>
+            <h1>Фантастика</h1>
+        </a>
+
+        <a href="ujas.html" class="big-div">
+            <img src="8.png" alt="img"><br><br>
+            <h1>Ужасы(тест)</h1>
+        </a>
+    </div>
+</body>
+</html>

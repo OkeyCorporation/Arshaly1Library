@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshaly1School библиотека</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Evolventa', sans-serif;
+        }
+
+        header {
+            position: relative;
+            background-color: #4E69F6;
+            color: #fff;
+            padding: 10px;
+            font-family: 'Evolventa', sans-serif;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            float: left;
+            margin-right: 5px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Evolventa', sans-serif;
+            line-height: 50px;
+        }
+
+        .glav {
+            position: relative;
+            float: right;
+            top: 1%;
+            background-color: #4E69F6;
+            border: none;
+            color: white;
+            padding: 0px 7px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 30px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Evolventa', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .question {
+            width: 80%;
+            background-color: #fff065;
+            margin: 20px;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .answer {
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #d3bc34;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="111.png" class="logo">
+        <a href="School.html" class="glav">О школе</a>
+        <a href="index.html" class="glav">Главная</a>
+        <h1>Arshaly school 1</h1>
+    </header>
+
+    <div class="container" id="taskContainer">
+        <!-- Вопросы и варианты ответов добавляются программно -->
+    </div>
+
+    <button id="checkButton">Проверить</button>
+
+    <script>
+        const questions = [
+            {
+                question: "Кто является автором произведения 'Щелкунчик'?",
+                answers: ["Андерсен", "Гофман", "Пушкин", "Толстой"],
+                correctAnswer: "Гофман"
+            },
+            {
+                question: "Как звали главного героя 'Щелкунчика'?",
+                answers: ["Клаус", "Мари", "Петя", "Иван"],
+                correctAnswer: "Иван"
+            },
+            {
+                question: "Как называется девочка-главная героиня 'Щелкунчика'?",
+                answers: ["Анна", "Мария", "Клара", "Елизавета"],
+                correctAnswer: "Клара"
+            },
+            {
+                question: "В каком городе разворачиваются основные события?",
+                answers: ["Нюрнберг", "Париж", "Рим", "Москва"],
+                correctAnswer: "Нюрнберг"
+            },
+            {
+                question: "Как называется волшебный цветок, который помогает Кларе вернуться домой?",
+                answers: ["Цветок волшебства", "Золотой цветок", "Цветок Счастья", "Лебединое озеро"],
+                correctAnswer: "Цветок волшебства"
+            },
+        ];
+
+        const container = document.getElementById("taskContainer");
+
+        questions.forEach((questionObj, index) => {
+            const div = document.createElement("div");
+            div.classList.add("question");
+
+            const question = document.createElement("p");
+            question.textContent = `${index + 1}. ${questionObj.question}`;
+            div.appendChild(question);
+
+            questionObj.answers.forEach((answer) => {
+                const radioBtn = document.createElement("input");
+                radioBtn.type = "radio";
+                radioBtn.name = `question${index}`;
+                radioBtn.value = answer;
+
+                const answerLabel = document.createElement("label");
+                answerLabel.textContent = answer;
+
+                const answerDiv = document.createElement("div");
+                answerDiv.classList.add("answer");
+                answerDiv.appendChild(radioBtn);
+                answerDiv.appendChild(answerLabel);
+
+                div.appendChild(answerDiv);
+            });
+
+            container.appendChild(div);
+        });
+
+        document.getElementById("checkButton").addEventListener("click", () => {
+            const answerContainers = container.querySelectorAll(".question");
+
+            let score = 0;
+
+            answerContainers.forEach((questionContainer, index) => {
+                const selectedAnswer = questionContainer.querySelector(`input[name="question${index}"]:checked`).value;
+
+                if (selectedAnswer === questions[index].correctAnswer) {
+                    score++;
+                    questionContainer.style.backgroundColor = "lightgreen";
+                } else {
+                    questionContainer.style.backgroundColor = "salmon";
+                }
+            });
+
+            const resultMessage = `Вы ответили правильно на ${score} из ${questions.length} вопросов.`;
+            alert(resultMessage);
+
+            // Скрыть кнопку после проверки
+            document.getElementById("checkButton").style.display = "none";
+        });
+    </script>
+</body>
+</html>
